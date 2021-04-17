@@ -6,7 +6,7 @@ int main(){
         struct node *ptr;
     };
     struct node *head=0,*newnode,*temp;
-    int ch;
+    int ch,m;
     printf("enter the choice");
     scanf("%d",&ch);
     while(ch!=0){
@@ -25,6 +25,16 @@ int main(){
         printf("enter the choice again");
         scanf("%d",&ch);
     }
+    void insert_at_beg(int m){
+        newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->data=m;
+        newnode->ptr=head;
+        head=newnode;
+        
+    }
+    printf("enter the element to be inserted at the begining");
+    scanf("%d",&m);
+    insert_at_beg(m);
     printf("displaying the elements");
     temp=head;
     while(temp!=0){
