@@ -67,12 +67,26 @@ int main(){
         struct node *prevnode;
         while(temp->ptr!=0){
             prevnode=temp;
-            temp=temo->ptr;
+            temp=temp->ptr;
         }
         prevnode->ptr=0;
         free(temp);
     }
-
+    void deletion_at_pos(int pos){
+        int i=1;
+        struct node *nextnode;
+        if(pos==0){
+            delete_at_beg();
+        }
+        else{
+            while(i<pos-1){
+                temp=temp->ptr;
+            }
+            nextnode=temp->ptr;
+            temp->ptr=nextnode->ptr;
+            free(nextnode);
+        }
+    }
     printf("enter the element to be inserted at the begining");
     scanf("%d",&m);
     insert_at_beg(m);
@@ -86,6 +100,7 @@ int main(){
     insert_at_pos(pos,key);
     delete_at_beg();
     delete_at_end();
+    deletion_at_pos(2);
     printf("displaying the elements");
     temp=head;
     while(temp!=0){
