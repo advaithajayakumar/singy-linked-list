@@ -6,7 +6,7 @@ int main(){
         struct node *ptr;
     };
     struct node *head=0,*newnode,*temp;
-    int ch,m;
+    int ch,m,n,pos,key;
     printf("enter the choice");
     scanf("%d",&ch);
     while(ch!=0){
@@ -42,12 +42,33 @@ int main(){
         }
         temp->ptr=newnode;
     }
+    void insert_at_pos(int pos,int key){
+        newnode=(struct node*)malloc(sizeof(struct node));
+        temp=head;
+        int i=1;
+        if(pos==1){
+            insert_at_beg(key);
+        }
+        else{
+            newnode->data=key;
+            while(i<pos-1){
+                temp=temp->ptr;
+            }
+            newnode->ptr=temp->ptr;
+            temp->ptr=newnode;
+        }
+    }
     printf("enter the element to be inserted at the begining");
     scanf("%d",&m);
     insert_at_beg(m);
     printf("enter the element you wish to insert at the end");
     scanf("%d",&n);
     insert_at_end(n);
+    printf("enter the pos of element to be inserted");
+    scanf("%d",&pos);
+    printf("enter the key to be inserted at the given position");
+    scanf("%d",&key);
+    insert_at_pos(pos,key);
     printf("displaying the elements");
     temp=head;
     while(temp!=0){
