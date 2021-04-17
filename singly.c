@@ -6,7 +6,7 @@ int main(){
         struct node *ptr;
     };
     struct node *head=0,*newnode,*temp;
-    int ch,m,n,pos,key;
+    int ch,m,n,pos,key,choice;
     printf("enter the choice");
     scanf("%d",&ch);
     while(ch!=0){
@@ -87,25 +87,62 @@ int main(){
             free(nextnode);
         }
     }
-    printf("enter the element to be inserted at the begining");
-    scanf("%d",&m);
-    insert_at_beg(m);
-    printf("enter the element you wish to insert at the end");
-    scanf("%d",&n);
-    insert_at_end(n);
-    printf("enter the pos of element to be inserted");
-    scanf("%d",&pos);
-    printf("enter the key to be inserted at the given position");
-    scanf("%d",&key);
-    insert_at_pos(pos,key);
-    delete_at_beg();
-    delete_at_end();
-    deletion_at_pos(2);
-    printf("displaying the elements");
-    temp=head;
-    while(temp!=0){
-        printf("%d",temp->data);
-        temp=temp->ptr;
+    while(1){
+        printf("1 :insertion");
+        printf("2 :deletion");
+        printf("3 :display");
+        scanf("%d",&choice);
+        break;
     }
+    switch(choice){
+        case 1 :printf("1 :insertion at begining");
+                printf("2 :insertion at the end");
+                printf("3 :insertion at position");
+                scanf("%d",&choice);
+                switch(choice){
+                    case 1  :printf("enter the element to be inserted at the begining");
+                            scanf("%d",&m);
+                            insert_at_beg(m);
+                            break;
+                    case 2 :printf("enter the element you wish to insert at the end");
+                            scanf("%d",&n);
+                            insert_at_end(n);
+                            break;
+                    case 3 :printf("enter the pos of element to be inserted");
+                            scanf("%d",&pos);
+                            printf("enter the key to be inserted at the given position");
+                            scanf("%d",&key);
+                            insert_at_pos(pos,key);
+                            break;
+                }
+                break;
+        case 2 :printf("1 :deletion at begining");
+                printf("2 :deleion at end");
+                printf("3 :deletion at a peculiar position");
+                scanf("%d",&choice);
+                switch(choice){
+                    case 1 :delete_at_beg();
+                            break;
+                    case 2 :delete_at_end();
+                            break;
+                    case 3 :deletion_at_pos(2);
+                            break;
+                }
+                break;
+        case 3 :printf("displaying the elements");
+                temp=head;
+                while(temp!=0){
+                printf("%d",temp->data);
+                temp=temp->ptr;
+                }  
+                break;    
+    }
+    
+    
+   
+
+  
+    
+   
     return 0;
 }
