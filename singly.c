@@ -63,6 +63,16 @@ int main(){
         head=head->ptr;
         free(temp);
     }
+    void delete_at_end(){
+        struct node *prevnode;
+        while(temp->ptr!=0){
+            prevnode=temp;
+            temp=temo->ptr;
+        }
+        prevnode->ptr=0;
+        free(temp);
+    }
+
     printf("enter the element to be inserted at the begining");
     scanf("%d",&m);
     insert_at_beg(m);
@@ -75,6 +85,7 @@ int main(){
     scanf("%d",&key);
     insert_at_pos(pos,key);
     delete_at_beg();
+    delete_at_end();
     printf("displaying the elements");
     temp=head;
     while(temp!=0){
