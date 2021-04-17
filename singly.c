@@ -58,6 +58,11 @@ int main(){
             temp->ptr=newnode;
         }
     }
+    void delete_at_beg(){
+        temp=head;
+        head=head->ptr;
+        free(temp);
+    }
     printf("enter the element to be inserted at the begining");
     scanf("%d",&m);
     insert_at_beg(m);
@@ -69,6 +74,7 @@ int main(){
     printf("enter the key to be inserted at the given position");
     scanf("%d",&key);
     insert_at_pos(pos,key);
+    delete_at_beg();
     printf("displaying the elements");
     temp=head;
     while(temp!=0){
